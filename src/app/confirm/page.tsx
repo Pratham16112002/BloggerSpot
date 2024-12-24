@@ -3,10 +3,9 @@ import { Button, Box, Typography, Container } from "@mui/material";
 import { styled } from "@mui/system";
 import { FaArrowRight } from "react-icons/fa";
 import React from "react";
-import { Router } from "next/router";
 import { redirect } from "next/navigation";
 
-const WelcomeContainer = styled(Box)(({ theme }) => ({
+const WelcomeContainer = styled(Box)(({}) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -20,13 +19,19 @@ const ConfirmPage = () => {
     <Container>
       <WelcomeContainer>
         <Typography
+          component={"h2"}
           variant="h2"
           gutterBottom
           sx={{ color: "#2c3e50", fontWeight: "bold" }}
         >
           Your account is activated
         </Typography>
-        <Typography variant="h5" gutterBottom sx={{ color: "#666", mb: 4 }}>
+        <Typography
+          component={"h5"}
+          variant="h5"
+          gutterBottom
+          sx={{ color: "#666", mb: 4 }}
+        >
           Your journey to amazing content begins here
         </Typography>
         <Button

@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar";
+import ReadtQueryClientProvider from "@/components/ReadtQueryClientProvider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,11 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <NavBar />
-        {children}
-      </body>
-    </html>
+    <ReadtQueryClientProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body>
+          <NavBar />
+          {children}
+        </body>
+      </html>
+    </ReadtQueryClientProvider>
   );
 }
