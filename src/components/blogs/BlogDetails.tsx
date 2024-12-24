@@ -1,8 +1,7 @@
-import { useUpdateBlog } from "@/hooks/useUpdateBlog";
 import { updatedBlog } from "@/util/helper";
 import { Box, Button, styled, TextField, Typography } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
-import { enqueueSnackbar, SnackbarProvider } from "notistack";
+import { enqueueSnackbar } from "notistack";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaSave } from "react-icons/fa";
@@ -45,8 +44,9 @@ function BlogDetails({ id, title, content }: Props) {
         persist: false,
       });
     },
-    onError: (error) => {
-      enqueueSnackbar((error as any)?.message || "Something went wrong", {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError: (error: any) => {
+      enqueueSnackbar(error?.message || "Something went wrong", {
         variant: "error",
         persist: false,
       });

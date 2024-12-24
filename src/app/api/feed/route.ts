@@ -1,8 +1,6 @@
 import { getSession, logout } from "@/actions";
 import axiosConfig from "@/axios/axiosConfig";
 import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
-import { redirect } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest): Promise<NextResponse> {

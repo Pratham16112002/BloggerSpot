@@ -1,5 +1,5 @@
 import { getSession, logout } from "@/actions";
-import { jwtVerify, SignJWT } from "jose";
+import { jwtVerify } from "jose";
 
 interface UserJwtPayload {
   exp: number;
@@ -30,14 +30,15 @@ export async function verifyToken(token: string) {
     const session = await getSession();
     if (verified.payload.sub) {
       session.userId = +verified.payload.sub;
-      (session.isLoggedIn = true), (session.token = token);
+      session.isLoggedIn = true;
+      session.token = token;
       await session.save();
     } else {
       await logout();
       throw new Error("Token does not belongs");
     }
     return verified.payload as UserJwtPayload;
-  } catch (error) {
+  } catch {
     throw new Error("Some error occured, token could not be verified");
   }
 }

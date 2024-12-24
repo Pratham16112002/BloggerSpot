@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Typography,
   TextField,
   Button,
-  Avatar,
   Paper,
   Stack,
-  Alert,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import { FaUserCircle } from "react-icons/fa";
 import { Comment } from "../../../types";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { register } from "module";
 import { useMutation } from "@tanstack/react-query";
 import { addComment } from "@/util/helper";
 import { enqueueSnackbar } from "notistack";
@@ -67,8 +63,9 @@ const BlogComments = ({ id, comments, refetchBlog }: Props) => {
       });
       refetchBlog();
     },
-    onError: (error) => {
-      enqueueSnackbar((error as any)?.message || "Something went wrong", {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError: (error: any) => {
+      enqueueSnackbar(error?.message ?? "Something went wrong", {
         variant: "error",
         persist: false,
       });

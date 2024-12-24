@@ -1,6 +1,6 @@
 "use server";
 import { getIronSession } from "iron-session";
-import { sessionOptions, SessionData, defaultSession } from "./lib";
+import { sessionOptions, SessionData } from "./lib";
 import { cookies } from "next/headers";
 import axiosConfig from "./axios/axiosConfig";
 import axios from "axios";
@@ -20,7 +20,6 @@ export const login: (credentails: {
   email: string;
   password: string;
 }) => Promise<ApiResponse> = async (credentails) => {
-  const session = await getSession();
   try {
     const response = await axiosConfig.post(
       "authentication/token",
@@ -49,6 +48,6 @@ export const login: (credentails: {
   }
 };
 export const logout = async () => {
-  let session = await getSession();
+  const session = await getSession();
   session.destroy();
 };

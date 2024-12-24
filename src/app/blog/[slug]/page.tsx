@@ -1,31 +1,15 @@
 "use client";
 import { Typography, Stack } from "@mui/material";
 import React, { use } from "react";
-import { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Button,
-  Card,
-  CardContent,
-  TextField,
-  Box,
-  Container,
-} from "@mui/material";
+import { Card, CardContent, Box, Container } from "@mui/material";
 import { styled } from "@mui/system";
-import { FaHome, FaEdit, FaSave } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import { useQuery } from "@tanstack/react-query";
 import { useGetBlogData } from "@/hooks/useGetBlog";
-import { notFound, redirect } from "next/navigation";
-import { useForm } from "react-hook-form";
 import BlogDetails from "@/components/blogs/BlogDetails";
 import BlogComments from "@/components/comments/CommentList";
 import { SnackbarProvider } from "notistack";
 import LoadingOverlay from "@/components/Loading";
 
-const StyledCard = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(({}) => ({
   maxWidth: 600,
   margin: "2rem auto",
   padding: "1rem",

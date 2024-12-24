@@ -1,30 +1,25 @@
 "use client";
 import {
   Avatar,
-  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CardHeader,
   CardMedia,
-  Checkbox,
-  Grid2,
   IconButton,
   Typography,
 } from "@mui/material";
-import { Favorite, FavoriteBorder, MoreVert, Share } from "@mui/icons-material";
+import { MoreVert } from "@mui/icons-material";
 import React from "react";
 
 interface Props {
   id?: number;
   title: string;
   content: string;
-  tags: any;
-  userId: any;
 }
 
-const BlogCard = ({ title, content, tags, userId }: Props) => {
+const BlogCard = ({ title, content }: Props) => {
   return (
     <Card sx={{ margin: 5 }}>
       <CardHeader

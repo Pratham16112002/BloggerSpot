@@ -8,13 +8,10 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
-  Chip,
   Paper,
   Typography,
-  Alert,
   Container,
   SelectChangeEvent,
-  OutlinedInput,
   ListItemText,
   Checkbox,
   FormHelperText,
@@ -23,7 +20,6 @@ import { styled } from "@mui/system";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-import { useAddBlogData } from "@/hooks/useAddblog";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import { addBlog } from "@/util/helper";
 import { tags } from "@/constants/categories";
@@ -107,8 +103,9 @@ const AddPostForm = () => {
         content: "",
       });
     },
-    onError: (error) => {
-      enqueueSnackbar((error as any)?.message || "Something went wrong", {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError: (error: any) => {
+      enqueueSnackbar(error?.message || "Something went wrong", {
         variant: "error",
         persist: false,
       });

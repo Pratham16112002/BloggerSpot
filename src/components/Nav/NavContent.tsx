@@ -5,24 +5,20 @@ import {
   Toolbar,
   IconButton,
   Button,
-  Card,
-  CardContent,
-  TextField,
   Box,
   Typography,
-  Container,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import { FaHome, FaEdit, FaSave } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { redirect } from "next/navigation";
 import { logout } from "@/actions";
 import { useRouter } from "next/navigation";
 
-const StyledAppBar = styled(AppBar)(({ theme }) => ({
+const StyledAppBar = styled(AppBar)(({}) => ({
   backgroundColor: "#2c3e50",
 }));
 
-const StyledButton = styled(Button)(({ theme }) => ({
+const StyledButton = styled(Button)(({}) => ({
   margin: "0 8px",
   color: "#ffffff",
   "&:hover": {

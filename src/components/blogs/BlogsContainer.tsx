@@ -1,32 +1,21 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   TextField,
   FormControl,
   Select,
   MenuItem,
-  Card,
-  CardContent,
-  CardActions,
   Grid,
-  Typography,
-  Chip,
   InputAdornment,
   Autocomplete,
-  Pagination,
   ThemeProvider,
   createTheme,
   TablePagination,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import { FiSearch, FiEye } from "react-icons/fi";
-import { DateTimePicker, DesktopDatePicker } from "@mui/x-date-pickers";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs, { Dayjs } from "dayjs";
+import { FiSearch } from "react-icons/fi";
 import BlogData, { RefetchFn } from "./BlogData";
-import { BlogType } from "../../../types";
 import { tags } from "@/constants/categories";
 
 const theme = createTheme({
@@ -56,16 +45,23 @@ const BlogsContainer = () => {
 
   const handleChangePage = async (
     event: React.MouseEvent<HTMLButtonElement> | null,
-    newPage: number,
+    newPage: number
   ) => {
-    setPage((prevState) => (prevState = newPage));
+    setPage((prevState) => {
+      prevState = newPage;
+      return prevState;
+    });
     refetchRef.current?.refetch();
   };
 
   const handleChangeRowsPerPage = async (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setLimit((prevState) => (prevState = parseInt(event.target.value, 10)));
+    setLimit((prevState) => {
+      prevState = parseInt(event.target.value, 10);
+
+      return prevState;
+    });
     refetchRef.current?.refetch();
   };
   return (
@@ -81,7 +77,10 @@ const BlogsContainer = () => {
                 placeholder="Search blogs..."
                 value={searchQuery}
                 onChange={(e) => {
-                  setSearchQuery((prev) => (prev = e.target.value));
+                  setSearchQuery((prev) => {
+                    prev = e.target.value;
+                    return prev;
+                  });
                 }}
                 InputProps={{
                   startAdornment: (
@@ -108,8 +107,12 @@ const BlogsContainer = () => {
               <FormControl fullWidth variant="outlined">
                 <Select
                   value={sortOrder}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(e: any) => {
-                    setSortOrder((prev) => (prev = e.target.value));
+                    setSortOrder((prev) => {
+                      prev = e.target.value;
+                      return prev;
+                    });
                   }}
                 >
                   <MenuItem value={"asc"}>Ascending</MenuItem>
@@ -123,7 +126,10 @@ const BlogsContainer = () => {
                 options={tags}
                 value={selectedTags}
                 onChange={(event, newValue) => {
-                  setSelectedTags((prev) => (prev = newValue));
+                  setSelectedTags((prev) => {
+                    prev = newValue;
+                    return prev;
+                  });
                 }}
                 renderInput={(params) => (
                   <TextField
