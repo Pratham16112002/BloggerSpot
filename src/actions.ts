@@ -4,7 +4,7 @@ import { sessionOptions, SessionData } from "./lib";
 import { cookies } from "next/headers";
 import axiosConfig from "./axios/axiosConfig";
 import axios from "axios";
-import { ApiResponse } from "../types";
+import { ApiResponse } from "./types";
 
 export const getSession = async () => {
   const session = await getIronSession<SessionData>(

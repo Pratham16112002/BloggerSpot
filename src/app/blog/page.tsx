@@ -1,8 +1,8 @@
 import { getSession } from "@/actions";
 import React from "react";
-import BlogsContainer from "@/components/blogs/BlogsContainer";
 import { Container } from "@mui/material";
 import { redirect } from "next/navigation";
+import BlogsContainer from "@/components/blogs/blogsContainer";
 
 const BlogsPage = async () => {
   const session = await getSession();

@@ -1,5 +1,5 @@
-import NavBar from "@/components/NavBar";
-import ReadtQueryClientProvider from "@/components/ReadtQueryClientProvider";
+import NavBar from "@/components/navbar";
+import ReadtQueryClientProvider from "@/components/readtQueryClientProvider";
 import type { Metadata } from "next";
 import React from "react";
 

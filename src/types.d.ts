@@ -1,4 +1,5 @@
 export interface BlogType {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any;
   id: number;
   title: string;
@@ -11,6 +12,7 @@ export interface BlogType {
 
 export interface ApiResponse {
   success: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
 }
 

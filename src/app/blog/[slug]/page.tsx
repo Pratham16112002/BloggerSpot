@@ -5,9 +5,9 @@ import { Card, CardContent, Box, Container } from "@mui/material";
 import { styled } from "@mui/system";
 import { useGetBlogData } from "@/hooks/useGetBlog";
 import BlogDetails from "@/components/blogs/BlogDetails";
-import BlogComments from "@/components/comments/CommentList";
 import { SnackbarProvider } from "notistack";
-import LoadingOverlay from "@/components/Loading";
+import BlogComments from "@/components/comments/commentList";
+import LoadingOverlay from "@/components/loading";
 
 const StyledCard = styled(Card)(({}) => ({
   maxWidth: 600,
