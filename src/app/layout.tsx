@@ -1,5 +1,7 @@
 import NavBar from "@/components/NavBar";
+import ReadtQueryClientProvider from "@/components/ReadtQueryClientProvider";
 import type { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,11 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <NavBar />
-        {children}
-      </body>
-    </html>
+    <ReadtQueryClientProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body>
+          <NavBar />
+          {children}
+        </body>
+      </html>
+    </ReadtQueryClientProvider>
   );
 }

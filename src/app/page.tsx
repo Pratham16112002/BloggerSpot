@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { Button, Grid2, Container, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 
@@ -24,7 +25,14 @@ export default function Home() {
               onClick={() => router.replace("/blog")}
               variant="contained"
               fullWidth
-              sx={{ mt: 1 }}
+              sx={{
+                backgroundColor: "#2c3e50",
+                padding: "12px 30px",
+                fontSize: "1.1rem",
+                "&:hover": {
+                  backgroundColor: "#34495e",
+                },
+              }}
             >
               Share anything
             </Button>
