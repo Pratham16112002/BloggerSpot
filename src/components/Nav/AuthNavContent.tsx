@@ -1,17 +1,11 @@
 "use client";
+import { AppBar, Toolbar, IconButton, Button, Typography } from "@mui/material";
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Button,
-  Box,
-  Typography,
-} from "@mui/material";
 import { styled } from "@mui/system";
 import { FaHome } from "react-icons/fa";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { logout } from "@/actions";
 
 const StyledAppBar = styled(AppBar)(({}) => ({
   backgroundColor: "#2c3e50",
@@ -25,7 +19,7 @@ const StyledButton = styled(Button)(({}) => ({
   },
 }));
 
-function NoAuthNavBarContent() {
+function AuthNavBarContent() {
   const router = useRouter();
   return (
     <StyledAppBar position="static">
@@ -41,25 +35,24 @@ function NoAuthNavBarContent() {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Blog Dashboard
         </Typography>
-        <Box>
-          <StyledButton
-            onClick={() => redirect("/user/login")}
-            aria-label="login"
-          >
-            Login
-          </StyledButton>
-          <StyledButton
-            variant="outlined"
-            sx={{ borderColor: "#ffffff" }}
-            aria-label="signup"
-            onClick={() => redirect("/user/register")}
-          >
-            Sign Up
-          </StyledButton>
-        </Box>
+        <StyledButton
+          onClick={() => router.replace("/blog/add")}
+          aria-label="add-blog"
+        >
+          Add Blog
+        </StyledButton>
+        <StyledButton
+          onClick={async () => {
+            await logout();
+            redirect("/user/login");
+          }}
+          aria-label="logout"
+        >
+          Log Out
+        </StyledButton>
       </Toolbar>
     </StyledAppBar>
   );
 }
 
-export default NoAuthNavBarContent;
+export default AuthNavBarContent;

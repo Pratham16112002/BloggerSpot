@@ -47,7 +47,8 @@ export const login: (credentails: {
     }
   }
 };
-export const logout = async () => {
+
+export async function logout() {
   const session = await getSession();
   session.destroy();
-};
+}
