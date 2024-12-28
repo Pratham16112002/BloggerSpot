@@ -24,7 +24,6 @@ export async function verifyToken(token: string): Promise<{
   validationError?: string;
 }> {
   try {
-    console.log(token);
     const { payload } = await jwtVerify(
       token,
       new TextEncoder().encode(getJwtSecretKey()),
@@ -61,22 +60,4 @@ export async function verifyToken(token: string): Promise<{
       throw new Error("Something went wrong");
     }
   }
-  // const verified = await jwtVerify(
-  //   token,
-  //   new TextEncoder().encode(getJwtSecretKey()),
-  //   {
-  //     issuer: process.env.JWT_ISS,
-  //     audience: process.env.JWT_ISS,
-  //   }
-  // );
-  // const session = await getSession();
-  // if (verified.payload.sub) {
-  //   session.userId = +verified.payload.sub;
-  //   session.isLoggedIn = true;
-  //   session.token = token;
-  //   await session.save();
-  // } else {
-  //   await logout();
-  //   throw new Error("Token does not belongs");
-  // }
 }

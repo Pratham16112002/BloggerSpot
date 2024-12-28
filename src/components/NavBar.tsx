@@ -1,13 +1,10 @@
 import { getSession } from "@/actions";
 import React from "react";
-import AuthNavBarContent from "./Nav/AuthNavContent";
-import NoAuthNavBarContent from "./Nav/NavContent";
+import AuthNavContent from "./Nav/AuthNavContent";
 
-export default async function NavBar() {
+async function AuthNavBarContent() {
   const session = await getSession();
-  console.log(session);
-  if (session.isLoggedIn) {
-    return <AuthNavBarContent />;
-  }
-  return <NoAuthNavBarContent />;
+  return <AuthNavContent isLoggedIn={session.isLoggedIn} />;
 }
+
+export default AuthNavBarContent;

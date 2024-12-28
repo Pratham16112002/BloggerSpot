@@ -1,28 +1,20 @@
 "use client";
+import React, { useEffect } from "react";
 import { AppBar, Toolbar, IconButton, Button, Typography } from "@mui/material";
-import React from "react";
-import { styled } from "@mui/system";
+import { Box } from "@mui/system";
 import { FaHome } from "react-icons/fa";
-import { redirect } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import { logout } from "@/actions";
 
-const StyledAppBar = styled(AppBar)(({}) => ({
-  backgroundColor: "#2c3e50",
-}));
+interface Props {
+  isLoggedIn: boolean;
+}
 
-const StyledButton = styled(Button)(({}) => ({
-  margin: "0 8px",
-  color: "#ffffff",
-  "&:hover": {
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-  },
-}));
-
-function AuthNavBarContent() {
-  const router = useRouter();
+function AuthNavContent({ isLoggedIn }: Props) {
+  const pathName = usePathname();
+  useEffect(() => {}, [isLoggedIn]);
   return (
-    <StyledAppBar position="static">
+    <AppBar sx={{ backgroundColor: "#2c3e50" }} position="static">
       <Toolbar>
         <IconButton
           edge="start"
@@ -30,29 +22,79 @@ function AuthNavBarContent() {
           aria-label="home"
           sx={{ mr: 2 }}
         >
-          <FaHome size={24} onClick={() => router.replace("/blog")} />
+          <FaHome size={24} onClick={() => redirect("/blog")} />
         </IconButton>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Blog Dashboard
         </Typography>
-        <StyledButton
-          onClick={() => router.replace("/blog/add")}
-          aria-label="add-blog"
-        >
-          Add Blog
-        </StyledButton>
-        <StyledButton
-          onClick={async () => {
-            await logout();
-            redirect("/user/login");
-          }}
-          aria-label="logout"
-        >
-          Log Out
-        </StyledButton>
+        <Box component={"div"}>
+          {isLoggedIn && pathName.startsWith("/blog") ? (
+            <>
+              <Button
+                sx={{
+                  margin: "0 8px",
+                  color: "#ffffff",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  },
+                }}
+                onClick={() => redirect("/blog/add")}
+                aria-label="add-blog"
+              >
+                Add Blog
+              </Button>
+              <Button
+                sx={{
+                  margin: "0 8px",
+                  color: "#ffffff",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  },
+                }}
+                onClick={async () => {
+                  await logout();
+                  redirect("/user/login");
+                }}
+                aria-label="logout"
+              >
+                Log Out
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                sx={{
+                  margin: "0 8px",
+                  color: "#ffffff",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  },
+                }}
+                onClick={() => redirect("/user/login")}
+                aria-label="login"
+              >
+                Login
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{
+                  margin: "0 8px",
+                  color: "#ffffff",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  },
+                }}
+                aria-label="signup"
+                onClick={() => redirect("/user/register")}
+              >
+                Sign Up
+              </Button>
+            </>
+          )}
+        </Box>
       </Toolbar>
-    </StyledAppBar>
+    </AppBar>
   );
 }
 
-export default AuthNavBarContent;
+export default AuthNavContent;

@@ -11,10 +11,7 @@ export default function GlobalError({
   error: CustomError;
   reset: () => void;
 }) {
-  useEffect(() => {
-    console.log("I am called");
-    console.log(error);
-  }, [error]);
+  useEffect(() => {}, [error]);
   return (
     <ReadtQueryClientProvider>
       <html lang="en" suppressHydrationWarning>

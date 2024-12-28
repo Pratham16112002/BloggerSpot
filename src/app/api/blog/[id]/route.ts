@@ -21,7 +21,6 @@ export async function GET(
       error: undefined,
       status: api_response.status,
     });
-    console.log(api_response);
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.status == 401) {
@@ -140,7 +139,6 @@ export async function POST(
     });
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.log(error.response);
       if (error.status == 401) {
         return NextResponse.json({
           data: undefined,

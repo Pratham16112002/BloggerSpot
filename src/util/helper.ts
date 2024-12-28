@@ -1,5 +1,5 @@
 import { RegisterFields } from "@/app/user/register/page";
-import { AuthorizationError } from "@/lib/exceptions";
+import { AuthorizationError, CustomError } from "@/lib/exceptions";
 
 export const fetchUpdated = async (
   p0: string | number | string[],
@@ -21,7 +21,7 @@ export const fetchUpdated = async (
   );
   const response = await res.json();
   if (!response.success) {
-    throw new Error("No blog found");
+    throw new CustomError(response.error, response.status);
   }
   return response.data;
 };
@@ -42,7 +42,7 @@ export const addBlog = async (blog: AddBlogPayload) => {
   });
   const response = await res.json();
   if (!response.success) {
-    throw new Error("Blog not posted");
+    throw new CustomError(response.error, response.status);
   }
   return response.data;
 };
@@ -56,7 +56,7 @@ export const getBlog = async (id: number) => {
   });
   const response = await res.json();
   if (!response.success) {
-    throw new Error("Blog not found");
+    throw new CustomError(response.error, response.status);
   }
   return response.data;
 };
@@ -108,7 +108,7 @@ export const addComment = async (payload: CommentPayload) => {
   });
   const response = await res.json();
   if (!response.success) {
-    throw new Error(response.error);
+    throw new CustomError(response.error, response.status);
   }
   return {};
 };
@@ -123,7 +123,7 @@ export const registerUser = async (payload: RegisterFields) => {
   });
   const response = await res.json();
   if (!response.success) {
-    throw new Error(response.error);
+    throw new CustomError(response.error, response.status);
   }
   return {};
 };

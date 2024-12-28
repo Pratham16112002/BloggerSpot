@@ -15,11 +15,11 @@ export default function Home() {
       }}
     >
       <Grid2 container justifyContent={"center"} alignItems={"center"}>
-        <Container>
+        <Container component={"div"}>
           <Typography component={"h1"} style={{ fontSize: 60 }}>
             Welcome to blogger spot
           </Typography>
-          <Container sx={{ width: "50%" }}>
+          <Container component={"div"} sx={{ width: "50%" }}>
             <Button
               type="submit"
               onClick={() => router.replace("/blog")}
