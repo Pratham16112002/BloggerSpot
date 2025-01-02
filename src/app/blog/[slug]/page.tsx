@@ -3,11 +3,11 @@ import { Typography, Stack } from "@mui/material";
 import React, { use } from "react";
 import { Card, CardContent, Box, Container } from "@mui/material";
 import { styled } from "@mui/system";
-import { useGetBlogData } from "@/hooks/useGetBlog";
-import BlogDetails from "@/components/blogs/BlogDetails";
-import BlogComments from "@/components/comments/CommentList";
+import { useGetBlogData } from "../../../hooks/useGetBlog";
+import BlogDetails from "../../../components/blogs/BlogDetails";
+import BlogComments from "../../../components/comments/CommentList";
 import { SnackbarProvider } from "notistack";
-import LoadingOverlay from "@/components/Loading";
+import LoadingOverlay from "../../../components/Loading";
 
 const StyledCard = styled(Card)(({}) => ({
   maxWidth: 600,

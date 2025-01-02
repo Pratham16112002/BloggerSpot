@@ -21,8 +21,8 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
-import { addBlog } from "@/util/helper";
-import { tags } from "@/constants/categories";
+import { addBlog } from "../../../util/helper";
+import { tags } from "../../../constants/categories";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),

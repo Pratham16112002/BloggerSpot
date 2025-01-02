@@ -1,6 +1,6 @@
 import React from "react";
-import BlogsContainer from "@/components/blogs/BlogsContainer";
 import { Container } from "@mui/material";
+import BlogsContainer from "../../components/blogs/BlogsContainer";
 
 const BlogsPage = async () => {
   return (
