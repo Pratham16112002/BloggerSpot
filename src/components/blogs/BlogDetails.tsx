@@ -1,4 +1,4 @@
-import { updatedBlog } from "@/util/helper";
+import { updatedBlog } from "../../util/helper";
 import { Box, Button, styled, TextField, Typography } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { enqueueSnackbar } from "notistack";

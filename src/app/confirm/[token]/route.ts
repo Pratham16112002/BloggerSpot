@@ -1,4 +1,4 @@
-import axiosConfig from "@/axios/axiosConfig";
+import axiosConfig from "../../../axios/axiosConfig";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 

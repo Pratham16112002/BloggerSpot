@@ -1,4 +1,4 @@
-import { getSession } from "@/actions";
+import { getSession } from "../actions";
 import React from "react";
 import AuthNavContent from "./Nav/AuthNavContent";
 

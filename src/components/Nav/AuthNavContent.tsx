@@ -4,7 +4,7 @@ import { AppBar, Toolbar, IconButton, Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { FaHome } from "react-icons/fa";
 import { redirect, usePathname } from "next/navigation";
-import { logout } from "@/actions";
+import { logout } from "../../actions";
 
 interface Props {
   isLoggedIn: boolean;

@@ -11,7 +11,7 @@ import { styled } from "@mui/system";
 import { Comment } from "../../../types";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-import { addComment } from "@/util/helper";
+import { addComment } from "../../util/helper";
 import { enqueueSnackbar } from "notistack";
 
 const CommentSection = styled(Box)(({ theme }) => ({

@@ -1,5 +1,5 @@
-import { getSession } from "@/actions";
-import axiosConfig from "@/axios/axiosConfig";
+import { getSession } from "../../../actions";
+import axiosConfig from "../../../axios/axiosConfig";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 

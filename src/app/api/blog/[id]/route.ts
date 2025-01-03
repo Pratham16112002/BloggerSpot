@@ -1,4 +1,4 @@
-import { getSession, logout } from "@/actions";
+import { getSession, logout } from "../../../../actions";
 import axiosConfig from "@/axios/axiosConfig";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";

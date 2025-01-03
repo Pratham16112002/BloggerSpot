@@ -1,7 +1,7 @@
 "use client";
-import NavBar from "@/components/NavBar";
-import ReadtQueryClientProvider from "@/components/ReadtQueryClientProvider";
-import { CustomError } from "@/lib/exceptions";
+import NavBar from "../components/NavBar";
+import ReadtQueryClientProvider from "../components/ReadtQueryClientProvider";
+import { CustomError } from "../lib/exceptions";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 

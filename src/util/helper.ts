@@ -1,5 +1,5 @@
 import { RegisterFields } from "@/app/user/register/page";
-import { AuthorizationError, CustomError } from "@/lib/exceptions";
+import { AuthorizationError, CustomError } from "../lib/exceptions";
 
 export const fetchUpdated = async (
   p0: string | number | string[],

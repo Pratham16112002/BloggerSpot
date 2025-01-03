@@ -1,4 +1,4 @@
-import { getBlog } from "@/util/helper";
+import { getBlog } from "../util/helper";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetBlogData = (id: number) => {
