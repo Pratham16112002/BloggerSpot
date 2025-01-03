@@ -13,7 +13,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { styled } from "@mui/system";
 import { FiMail, FiLock } from "react-icons/fi";
 import { redirect } from "next/navigation";
-import { login } from "@/actions";
+import { login } from "../../../actions";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import Link from "next/link";
 

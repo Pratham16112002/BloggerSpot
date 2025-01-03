@@ -15,7 +15,7 @@ import { FiEye } from "react-icons/fi";
 
 import { BlogType } from "../../../types";
 import { useQuery } from "@tanstack/react-query";
-import { fetchUpdated } from "@/util/helper";
+import { fetchUpdated } from "../../util/helper";
 import { useRouter } from "next/navigation";
 import LoadingOverlay from "../Loading";
 
@@ -33,7 +33,7 @@ export type RefetchFn = {
 
 function BlogData(
   { limit, page, order, tags, search }: Props,
-  ref: Ref<RefetchFn>,
+  ref: Ref<RefetchFn>
 ) {
   const router = useRouter();
   const { data, isFetching, isError, refetch } = useQuery({
@@ -44,7 +44,7 @@ function BlogData(
         queryKey[2],
         queryKey[3],
         queryKey[4],
-        queryKey[5],
+        queryKey[5]
       );
       return data;
     },

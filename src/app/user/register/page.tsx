@@ -16,7 +16,7 @@ import { styled } from "@mui/system";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "@/util/helper";
+import { registerUser } from "../../../util/helper";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
 
 export type RegisterFields = {

@@ -16,7 +16,7 @@ import {
 import { styled } from "@mui/system";
 import { FiSearch } from "react-icons/fi";
 import BlogData, { RefetchFn } from "./BlogData";
-import { tags } from "@/constants/categories";
+import { tags } from "../../constants/categories";
 
 const theme = createTheme({
   palette: {
