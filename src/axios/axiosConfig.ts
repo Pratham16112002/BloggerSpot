@@ -6,7 +6,7 @@ const pass = "1234";
 const encoded = Buffer.from(username + ":" + pass).toString("base64");
 
 export default axios.create({
-  baseURL: "http://localhost:3001/v1/",
+  baseURL: process.env.BACK_END_URL,
   headers: {
     Authorization: "Basic " + encoded,
   },

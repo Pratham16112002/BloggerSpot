@@ -1,5 +1,4 @@
-import { jwtVerify } from "jose";
-import { JWTExpired, JWTInvalid } from "jose/errors";
+import { jwtVerify } from "jose/jwt/verify";
 
 // interface UserJwtPayload {
 //   exp: number;
@@ -42,21 +41,11 @@ export async function verifyToken(token: string): Promise<{
       userId: +payload.sub,
       verified: true,
     };
-  } catch (error) {
-    if (error instanceof JWTExpired) {
-      return {
-        userId: null,
-        verified: false,
-        validationError: "Token is expired",
-      };
-    } else if (error instanceof JWTInvalid) {
-      return {
-        userId: null,
-        verified: false,
-        validationError: "Token is invalid",
-      };
-    } else {
-      throw new Error("Something went wrong");
-    }
+  } catch {
+    return {
+      userId: null,
+      verified: false,
+      validationError: "Token is invalid",
+    };
   }
 }
