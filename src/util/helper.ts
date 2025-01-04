@@ -1,4 +1,4 @@
-import { RegisterFields } from "@/app/user/register/page";
+import { RegisterFields } from "../app/user/register/page";
 import { AuthorizationError, CustomError } from "../lib/exceptions";
 
 export const fetchUpdated = async (
