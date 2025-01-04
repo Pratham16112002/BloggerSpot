@@ -1,4 +1,4 @@
-import { jwtVerify } from "jose/jwt/verify";
+import { jwtVerify } from "jose";
 
 // interface UserJwtPayload {
 //   exp: number;
