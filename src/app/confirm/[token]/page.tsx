@@ -2,7 +2,7 @@
 import { Button, Box, Typography, Container } from "@mui/material";
 import { styled } from "@mui/system";
 import { FaArrowRight } from "react-icons/fa";
-import React from "react";
+import React, { useEffect } from "react";
 import { redirect } from "next/navigation";
 
 const WelcomeContainer = styled(Box)(({}) => ({
@@ -14,15 +14,19 @@ const WelcomeContainer = styled(Box)(({}) => ({
   textAlign: "center",
 }));
 
-const ConfirmPage = async ({
-  params,
-}: {
-  params: Promise<{ token: string }>;
-}) => {
-  const token = (await params).token;
-  if (token) {
-    await fetch(`/api/${token}`);
-  }
+const ConfirmPage = ({ params }: { params: Promise<{ token: string }> }) => {
+  const { token } = React.use(params);
+  useEffect(() => {
+    const validateToken = async () => {
+      const res = await fetch(`/api/${token}`, {
+        method: "GET",
+      });
+      if (!res.ok) {
+        redirect("/");
+      }
+    };
+    validateToken();
+  }, []);
   return (
     <Container>
       <WelcomeContainer>

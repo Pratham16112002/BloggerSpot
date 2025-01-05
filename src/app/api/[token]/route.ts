@@ -6,11 +6,10 @@ export async function GET(
   { params }: { params: Promise<{ token: string }> }
 ) {
   const token = (await params).token;
-  const url = request.nextUrl;
   try {
     await axiosConfig.put(`users/activate/${token}`);
+    return NextResponse.json({ message: "User activated successfully" });
   } catch {
-    url.pathname = "/";
-    return NextResponse.redirect(url);
+    return NextResponse.error();
   }
 }
