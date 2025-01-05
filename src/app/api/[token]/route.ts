@@ -9,8 +9,6 @@ export async function GET(
   const url = request.nextUrl;
   try {
     await axiosConfig.put(`users/activate/${token}`);
-    url.pathname = "/confirm";
-    return NextResponse.redirect(url);
   } catch {
     url.pathname = "/";
     return NextResponse.redirect(url);

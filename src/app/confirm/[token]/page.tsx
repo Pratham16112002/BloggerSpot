@@ -14,7 +14,15 @@ const WelcomeContainer = styled(Box)(({}) => ({
   textAlign: "center",
 }));
 
-const ConfirmPage = () => {
+const ConfirmPage = async ({
+  params,
+}: {
+  params: Promise<{ token: string }>;
+}) => {
+  const token = (await params).token;
+  if (token) {
+    await fetch(`/api/${token}`);
+  }
   return (
     <Container>
       <WelcomeContainer>
