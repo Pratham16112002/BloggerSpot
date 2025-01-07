@@ -1,4 +1,4 @@
-import { getSession, logout } from "../../../../actions";
+import { getSession } from "../../../../actions";
 import axiosConfig from "../../../../axios/axiosConfig";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
@@ -23,30 +23,12 @@ export async function GET(
     });
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      if (error.status == 401) {
-        await logout();
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      } else if (error.status == 403) {
-        await logout();
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      } else {
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      }
+      return NextResponse.json({
+        data: undefined,
+        success: false,
+        error: error.response?.data.error,
+        status: error.status,
+      });
     } else {
       return NextResponse.json({
         data: undefined,
@@ -82,28 +64,12 @@ export async function PATCH(
     });
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      if (error.status == 401) {
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      } else if (error.status == 403) {
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      } else {
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      }
+      return NextResponse.json({
+        data: undefined,
+        success: false,
+        error: error.response?.data.error,
+        status: error.status,
+      });
     } else {
       return NextResponse.json({
         data: undefined,
@@ -139,28 +105,12 @@ export async function POST(
     });
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      if (error.status == 401) {
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      } else if (error.status == 403) {
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      } else {
-        return NextResponse.json({
-          data: undefined,
-          success: false,
-          error: error.response?.data.error,
-          status: error.status,
-        });
-      }
+      return NextResponse.json({
+        data: undefined,
+        success: false,
+        error: error.response?.data.error,
+        status: error.status,
+      });
     } else {
       return NextResponse.json({
         data: undefined,
