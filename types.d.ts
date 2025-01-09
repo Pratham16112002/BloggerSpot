@@ -1,4 +1,5 @@
 export interface BlogType {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any;
   id: number;
   title: string;
@@ -11,6 +12,7 @@ export interface BlogType {
 
 export interface ApiResponse {
   success: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
 }
 
@@ -20,4 +22,12 @@ export interface Comment {
     username: string;
   };
   content: string;
+}
+
+export interface Friend {
+  id: number;
+  email: string;
+  follower: false;
+  username: string;
+  created_at: string;
 }

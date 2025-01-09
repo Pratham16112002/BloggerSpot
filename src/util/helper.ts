@@ -26,6 +26,30 @@ export const fetchUpdated = async (
   return response.data;
 };
 
+export const fetchFriends = async (
+  p0: string | number | string[],
+  p1: string | number | string[],
+  p2: string | number | string[],
+  p3: string | number | string[]
+) => {
+  const res = await fetch(
+    `/api/friends?limit=${p0}&offset=${
+      (p0 as number) * (p1 as number)
+    }&search=${p2 ?? ""}&role=${p3}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const response = await res.json();
+  if (!response.success) {
+    throw new CustomError(response.error, response.status);
+  }
+  return response.data;
+};
+
 interface AddBlogPayload {
   title: string;
   content: string;
@@ -80,11 +104,8 @@ export const updatedBlog = async (payload: UpdateBlogPayload) => {
   });
   const response = await res.json();
   if (!response.success) {
-    if (response.status == 401) {
-      throw new AuthorizationError("Not Authorized");
-    }
     if (response.status == 403) {
-      throw new AuthorizationError("Only moderator can update post");
+      throw new AuthorizationError("Only moderator can update post", 403);
     }
     throw new Error(response.error);
   }
@@ -105,6 +126,34 @@ export const addComment = async (payload: CommentPayload) => {
     body: JSON.stringify({
       content: payload.content,
     }),
+  });
+  const response = await res.json();
+  if (!response.success) {
+    throw new CustomError(response.error, response.status);
+  }
+  return {};
+};
+
+export const followUser = async (payload: { id: number }) => {
+  const res = await fetch(`/api/friends/follow/${payload.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const response = await res.json();
+  if (!response.success) {
+    throw new CustomError(response.error, response.status);
+  }
+  return {};
+};
+
+export const unFollowUser = async (payload: { id: number }) => {
+  const res = await fetch(`/api/friends/unfollow/${payload.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
   const response = await res.json();
   if (!response.success) {

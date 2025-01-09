@@ -17,6 +17,7 @@ import { styled } from "@mui/system";
 import { FiSearch } from "react-icons/fi";
 import BlogData, { RefetchFn } from "./BlogData";
 import { tags } from "../../constants/categories";
+import { useDebounce } from "use-debounce";
 
 const theme = createTheme({
   palette: {
@@ -42,6 +43,7 @@ const BlogsContainer = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(6);
+  const [defSearchQuery] = useDebounce(searchQuery, 1000);
 
   const handleChangePage = async (
     event: React.MouseEvent<HTMLButtonElement> | null,
@@ -182,7 +184,7 @@ const BlogsContainer = () => {
         <Grid container spacing={3}>
           <BlogData
             limit={limit}
-            search={searchQuery}
+            search={defSearchQuery}
             order={sortOrder}
             page={page}
             tags={selectedTags}
