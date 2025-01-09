@@ -1,18 +1,17 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { AppBar, Toolbar, IconButton, Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { FaHome } from "react-icons/fa";
 import { redirect, usePathname } from "next/navigation";
 import { logout } from "../../actions";
+import { privateRoutes } from "@/util/route";
 
-interface Props {
-  isLoggedIn: boolean;
-}
-
-function AuthNavContent({ isLoggedIn }: Props) {
+function AuthNavContent() {
   const pathName = usePathname();
-  useEffect(() => {}, [isLoggedIn]);
+  const isPrivateRoute = privateRoutes.some((route) =>
+    pathName.startsWith(route)
+  );
   return (
     <AppBar sx={{ backgroundColor: "#2c3e50" }} position="static">
       <Toolbar>
@@ -28,8 +27,21 @@ function AuthNavContent({ isLoggedIn }: Props) {
           Blog Dashboard
         </Typography>
         <Box component={"div"}>
-          {isLoggedIn && pathName.startsWith("/blog") ? (
+          {isPrivateRoute ? (
             <>
+              <Button
+                sx={{
+                  margin: "0 8px",
+                  color: "#ffffff",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  },
+                }}
+                onClick={() => redirect("/friends/add")}
+                aria-label="add-blog"
+              >
+                Add Friends
+              </Button>
               <Button
                 sx={{
                   margin: "0 8px",

@@ -1,10 +1,8 @@
-"use client";
 import React from "react";
 import { Button, Grid2, Container, Typography } from "@mui/material";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
-  const router = useRouter();
   return (
     <Grid2
       container
@@ -20,22 +18,23 @@ export default function Home() {
             Welcome to blogger spot
           </Typography>
           <Container component={"div"} sx={{ width: "50%" }}>
-            <Button
-              type="submit"
-              onClick={() => router.replace("/blog")}
-              variant="contained"
-              fullWidth
-              sx={{
-                backgroundColor: "#2c3e50",
-                padding: "12px 30px",
-                fontSize: "1.1rem",
-                "&:hover": {
-                  backgroundColor: "#34495e",
-                },
-              }}
-            >
-              Share anything
-            </Button>
+            <Link href={"/user/login"}>
+              <Button
+                type="submit"
+                variant="contained"
+                fullWidth
+                sx={{
+                  backgroundColor: "#2c3e50",
+                  padding: "12px 30px",
+                  fontSize: "1.1rem",
+                  "&:hover": {
+                    backgroundColor: "#34495e",
+                  },
+                }}
+              >
+                Share anything
+              </Button>
+            </Link>
           </Container>
         </Container>
       </Grid2>

@@ -11,10 +11,10 @@ export class CustomError extends Error {
 }
 
 export class AuthorizationError extends Error {
-  statusCode: string;
-  constructor(message: string) {
+  statusCode: number;
+  constructor(message: string, statusCode: number) {
     super(message);
-    this.statusCode = "401";
+    this.statusCode = statusCode;
     this.name = this.constructor.name;
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, this.constructor);
