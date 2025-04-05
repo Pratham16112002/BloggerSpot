@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BloggerSpot 🚀
 
-## Getting Started
+BloggerSpot is a modern blogging platform built with Next.js, offering a seamless experience for creating, sharing, and discovering blog content. Connect with fellow bloggers, share your thoughts, and engage with a vibrant community.
 
-First, run the development server:
+## Features ✨
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **User Authentication**
+  - Secure login and registration system
+  - Email confirmation for new accounts
+  - Protected routes for authenticated users
+
+- **Blog Management**
+  - Create and publish blog posts
+  - Rich text editing capabilities
+  - Categorize blogs by topics
+  - View and manage your blog posts
+
+- **Social Features**
+  - Follow/Unfollow other bloggers
+  - Comment on blog posts
+  - View personalized feed based on followed users
+
+- **Responsive Design**
+  - Modern and clean user interface
+  - Mobile-friendly layout
+  - Smooth navigation experience
+
+## Tech Stack 💻
+
+- **Frontend**
+  - Next.js 13+ with App Router
+  - TypeScript
+  - React Query
+  - Axios for API calls
+  - Modern UI components
+
+- **Backend**
+  - [Backend Repository Link](https://github.com/Pratham16112002/POSTGRES_Go)
+
+## Getting Started 🚀
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/Pratham16112002/BloggerSpot.git
+   cd BloggerSpot
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file in the root directory and add necessary environment variables.
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:3000` to see the application running.
+
+## Project Structure 📁
+
+```
+src/
+├── app/              # App router pages and API routes
+├── components/       # Reusable React components
+├── hooks/           # Custom React hooks
+├── util/            # Utility functions
+├── constants/       # Constants and configurations
+└── axios/           # Axios configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing 🤝
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are welcome! Feel free to open issues and submit pull requests.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Learn More
+## License 📝
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Made with ❤️ by [Pratham](https://github.com/Pratham16112002)
